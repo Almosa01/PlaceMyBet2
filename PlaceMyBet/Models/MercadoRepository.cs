@@ -57,7 +57,7 @@ namespace PlaceMyBet.Models
             con.Close();
             return m;
         }
-        internal Mercado Filtrar2()
+        internal MercadoDto Filtrar2()
         {
 
             MySqlConnection con = Connect();
@@ -65,11 +65,11 @@ namespace PlaceMyBet.Models
             command.CommandText = "SELECT IdMercado, Mercado, CuotaOver, CuotaUnder,DineroOver,DineroUnder FROM mercado INNER JOIN evento  WHERE IdEvento = 1;";
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
-            Mercado e = null;
+            MercadoDto e = null;
             if (res.Read())
             {
-                Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetDouble(1) + " " + res.GetDouble(2) + " " + res.GetDouble(3) + " " + res.GetDouble(4) + " " + res.GetDouble(5));
-                e = new Mercado(res.GetInt32(0), res.GetDouble(1), res.GetDouble(2), res.GetDouble(3), res.GetDouble(4), res.GetDouble(5));
+                Debug.WriteLine("Recuperado: " + res.GetDouble(0) + " " + res.GetDouble(1) + " " + res.GetDouble(2));
+                e = new MercadoDto(res.GetDouble(0), res.GetDouble(1), res.GetDouble(2));
 
             }
             return e;

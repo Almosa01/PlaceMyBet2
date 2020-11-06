@@ -17,10 +17,10 @@ namespace PlaceMyBet.Controllers
         }
 
         // GET: api/Mercados/5
-        public Mercado Get(int id)
+        public MercadoDto Get(int id)
         {
             var repo = new MercadoRepository();
-            Mercado m = repo.Filtrar2();
+            MercadoDto m = repo.Filtrar2();
             return m;
         }
 
