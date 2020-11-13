@@ -17,11 +17,11 @@ namespace PlaceMyBet.Controllers
         }
 
         // GET: api/Apuestas/5
-        [Authorize(Roles = "Admin")]
-        public ApuestaDto2 Get(int id)//ApuestaDto3
+        //[Authorize(Roles = "Admin")]
+        public Apuesta Get(int id)//ApuestaDto3
         {
             var repo = new ApuestaRepository();
-            ApuestaDto2 a = repo.Filtrar2();//Filtrar3
+            Apuesta a = repo.RetrieveData(id);//Filtrar3
             return a;
         }
 

@@ -21,11 +21,12 @@ namespace PlaceMyBet.Models
             MySqlConnection con = new MySqlConnection(connectionstring);
             return con;
         }
-        internal Apuesta Retrieve()
+        internal Apuesta RetrieveData(int id)
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from apuesta";
+            command.CommandText = "select * from apuesta where IdApuesta=@A";
+            command.Parameters.AddWithValue("@A", id);
 
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
@@ -38,6 +39,7 @@ namespace PlaceMyBet.Models
             con.Close();
             return a;
         }
+        
         internal ApuestaDto Filtrar()
         {
             MySqlConnection con = Connect();
