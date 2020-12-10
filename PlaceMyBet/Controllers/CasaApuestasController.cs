@@ -17,13 +17,13 @@ namespace PlaceMyBet.Controllers
         }
 
         // GET: api/CasaApuestas/5
-        public CasaApuestas Get(int id)
-        {
-            //var
-            var repo = new CasaApuestasRepository();
-            CasaApuestas c = repo.Retrieve();
-            return c;
-        }
+        //public CasaApuestas Get(int id)
+        //{
+        //    //var
+        //    var repo = new CasaApuestasRepository();
+        //    CasaApuestas c = repo.Retrieve();
+        //    return c;
+        //}
 
         // POST: api/CasaApuestas
         public void Post([FromBody]string value)

@@ -21,17 +21,17 @@ namespace PlaceMyBet.Controllers
         public Apuesta Get(int id)//ApuestaDto3
         {
             var repo = new ApuestaRepository();
-            Apuesta a = repo.RetrieveData(id);//Filtrar3
+            Apuesta a = repo.Retrieve(id);//Filtrar3
             return a;
         }
 
         // POST: api/Apuestas
         [Authorize]
-        public void Post([FromBody]Apuesta apuesta)
-        {
-            var repo = new ApuestaRepository();
-            repo.Save(apuesta); 
-        }
+        //public void Post([FromBody]Apuesta apuesta)
+        //{
+        //    var repo = new ApuestaRepository();
+        //    repo.Save(apuesta); 
+        //}
 
         // PUT: api/Apuestas/5
         public void Put(int id, [FromBody]string value)

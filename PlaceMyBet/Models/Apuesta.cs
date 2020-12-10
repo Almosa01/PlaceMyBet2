@@ -9,24 +9,26 @@ namespace PlaceMyBet.Models
     public class Apuesta
     {
 
-        public Apuesta(int idApuesta, string tipo, double dinero, int mercado, string correo)
+        public Apuesta(int apuestaId, string tipo, double dinero, double mercado, string correo)
         {
-            this.idApuesta = idApuesta;
+            this.apuestaId = apuestaId;
             this.tipo = tipo;
             this.dinero = dinero;
             this.mercado = mercado;
             this.correo = correo;
         }
 
-        public int idApuesta { get; set; }
+        public int apuestaId { get; set; }
 
         public string tipo { get; set; }
 
         public double dinero { get; set; }
 
-        public int mercado { get; set; }
+        public double mercado { get; set; }
 
         public string correo { get; set; }
+
+        public Mercado mercados2 { get; set; }
     }
     public class ApuestaDto
     {
