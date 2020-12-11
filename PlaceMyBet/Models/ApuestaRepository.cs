@@ -141,6 +141,14 @@ namespace PlaceMyBet.Models
 
             return apuestas;
         }
+        internal void Save(Apuesta a)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.apuestas.Add(a);
+            context.SaveChanges();
+
+        }
     }
 
 

@@ -101,6 +101,13 @@ namespace PlaceMyBet.Models
 
             return mercados;
         }
+        internal void Save(Mercado m)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
 
+            context.mercados.Add(m);
+            context.SaveChanges();
+
+        }
     }
 }
