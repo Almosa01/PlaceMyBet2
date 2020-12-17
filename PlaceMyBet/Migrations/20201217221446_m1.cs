@@ -126,12 +126,12 @@ namespace PlaceMyBet.Migrations
             migrationBuilder.InsertData(
                 table: "apuestas",
                 columns: new[] { "apuestaId", "correo", "dinero", "mercado", "mercados2mercadoId", "tipo", "usuarioId" },
-                values: new object[] { 1, "pabloescobar@gmail.com", 4000.0, 1.5, null, "over", null });
+                values: new object[] { 1, "alexmontalvo@gmail.com", 4000.0, 1.5, null, "over", null });
 
             migrationBuilder.InsertData(
                 table: "casaApuestas",
                 columns: new[] { "casaApuestasId", "Correo", "NombreBanco", "Numtarjeta", "SaldoActual" },
-                values: new object[] { 1, "pabloescobar@gmail.com", "Caixa", 12345678, 4000.0 });
+                values: new object[] { 1, "alexmontalvo@gmail.com", "Caixa", 12345678, 4000.0 });
 
             migrationBuilder.InsertData(
                 table: "eventos",
@@ -146,7 +146,7 @@ namespace PlaceMyBet.Migrations
             migrationBuilder.InsertData(
                 table: "usuarios",
                 columns: new[] { "usuarioId", "apellido", "casaApuestas2casaApuestasId", "edad", "mercado", "mercadoId", "nombre" },
-                values: new object[] { 1, "Escobar", null, 50, 1.5, null, "Pablo" });
+                values: new object[] { 1, "Montalvo", null, 50, 1.5, null, "Alex" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_apuestas_mercados2mercadoId",

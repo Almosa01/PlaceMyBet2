@@ -9,7 +9,7 @@ using PlaceMyBet.Models;
 namespace PlaceMyBet.Migrations
 {
     [DbContext(typeof(PlaceMyBetContext))]
-    [Migration("20201210224017_m1")]
+    [Migration("20201217221446_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,7 +55,7 @@ namespace PlaceMyBet.Migrations
                         new
                         {
                             apuestaId = 1,
-                            correo = "pabloescobar@gmail.com",
+                            correo = "alexmontalvo@gmail.com",
                             dinero = 4000.0,
                             mercado = 1.5,
                             tipo = "over"
@@ -88,7 +88,7 @@ namespace PlaceMyBet.Migrations
                         new
                         {
                             casaApuestasId = 1,
-                            Correo = "pabloescobar@gmail.com",
+                            Correo = "alexmontalvo@gmail.com",
                             NombreBanco = "Caixa",
                             Numtarjeta = 12345678,
                             SaldoActual = 4000.0
@@ -206,10 +206,10 @@ namespace PlaceMyBet.Migrations
                         new
                         {
                             usuarioId = 1,
-                            apellido = "Escobar",
+                            apellido = "Montalvo",
                             edad = 50,
                             mercado = 1.5,
-                            nombre = "Pablo"
+                            nombre = "Alex"
                         });
                 });
 

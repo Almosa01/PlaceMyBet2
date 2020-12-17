@@ -11,10 +11,10 @@ namespace PlaceMyBet.Controllers
     public class EventosController : ApiController
     {
         // GET: api/Eventos
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
         // GET: api/Eventos?NombreELocal=NombreELocal
         //public IEnumerable<Evento> GetNombreFecha(string nombre)
         //{
@@ -23,7 +23,7 @@ namespace PlaceMyBet.Controllers
         //}
 
         // GET: api/Eventos/5
-        public List<Evento> Get(int id)
+        public List<Evento> Get()
         {
             var repo = new EventoRepository();
             List<Evento> e = repo.Retrieve();
