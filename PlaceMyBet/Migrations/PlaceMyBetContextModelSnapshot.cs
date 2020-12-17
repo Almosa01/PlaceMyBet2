@@ -19,31 +19,24 @@ namespace PlaceMyBet.Migrations
 
             modelBuilder.Entity("PlaceMyBet.Models.Apuesta", b =>
                 {
-                    b.Property<int>("apuestaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("correo")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<string>("apuestaId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<double>("dinero")
                         .HasColumnType("double");
 
-                    b.Property<double>("mercado")
-                        .HasColumnType("double");
-
-                    b.Property<int?>("mercados2mercadoId")
+                    b.Property<int>("mercadoId")
                         .HasColumnType("int");
 
                     b.Property<string>("tipo")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int?>("usuarioId")
-                        .HasColumnType("int");
+                    b.Property<string>("usuarioId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("apuestaId");
 
-                    b.HasIndex("mercados2mercadoId");
+                    b.HasIndex("mercadoId");
 
                     b.HasIndex("usuarioId");
 
@@ -52,10 +45,9 @@ namespace PlaceMyBet.Migrations
                     b.HasData(
                         new
                         {
-                            apuestaId = 1,
-                            correo = "pabloescobar@gmail.com",
+                            apuestaId = "alexmontalvo1112@gmail.com",
                             dinero = 4000.0,
-                            mercado = 1.5,
+                            mercadoId = 1,
                             tipo = "over"
                         });
                 });
@@ -86,7 +78,7 @@ namespace PlaceMyBet.Migrations
                         new
                         {
                             casaApuestasId = 1,
-                            Correo = "pabloescobar@gmail.com",
+                            Correo = "alexmontalvo1112@gmail.com",
                             NombreBanco = "Caixa",
                             Numtarjeta = 12345678,
                             SaldoActual = 4000.0
@@ -170,9 +162,8 @@ namespace PlaceMyBet.Migrations
 
             modelBuilder.Entity("PlaceMyBet.Models.Usuario", b =>
                 {
-                    b.Property<int>("usuarioId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("usuarioId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("apellido")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -203,11 +194,11 @@ namespace PlaceMyBet.Migrations
                     b.HasData(
                         new
                         {
-                            usuarioId = 1,
-                            apellido = "Escobar",
+                            usuarioId = "alexmontalvo1112@gmail.com",
+                            apellido = "Montalvo",
                             edad = 50,
                             mercado = 1.5,
-                            nombre = "Pablo"
+                            nombre = "Alex"
                         });
                 });
 
@@ -215,7 +206,9 @@ namespace PlaceMyBet.Migrations
                 {
                     b.HasOne("PlaceMyBet.Models.Mercado", "mercados2")
                         .WithMany()
-                        .HasForeignKey("mercados2mercadoId");
+                        .HasForeignKey("mercadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PlaceMyBet.Models.Usuario", null)
                         .WithMany("apuestas2")

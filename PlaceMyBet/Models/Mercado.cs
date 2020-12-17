@@ -7,6 +7,7 @@ namespace PlaceMyBet.Models
 {
     public class Mercado
     {
+
         public Mercado(int mercadoId, double mercado, double cuotaOver, double cuotaUnder, double dineroOver, double dineroUnder)
         {
             this.mercadoId = mercadoId;
@@ -15,6 +16,7 @@ namespace PlaceMyBet.Models
             this.cuotaUnder = cuotaUnder;
             this.dineroOver = dineroOver;
             this.dineroUnder = dineroUnder;
+
         }
 
         public int mercadoId { get; set; }
@@ -32,21 +34,14 @@ namespace PlaceMyBet.Models
         public List<Evento> eventos2 { get; set; }
 
         public List<Usuario> usuarios2 { get; set; }
+
+
+
+
     }
-    public class MercadoDto
-    {
-        public MercadoDto(double mercado, double cuotaOver, double cuotaUnder)
-        {
-            this.mercado = mercado;
-            this.cuotaOver = cuotaOver;
-            this.cuotaUnder = cuotaUnder;
-        }
 
-        public double mercado { get; set; }
 
-        public double cuotaOver { get; set; }
 
-        public double cuotaUnder { get; set; }
-    }
+
 
 }

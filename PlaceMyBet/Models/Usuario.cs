@@ -7,7 +7,11 @@ namespace PlaceMyBet.Models
 {
     public class Usuario
     {
-        public Usuario(int usuarioId, string nombre, string apellido, int edad, double mercado)
+        public Usuario()
+        {
+
+        }
+        public Usuario(string usuarioId, string nombre, string apellido, int edad, double mercado)
         {
             this.usuarioId = usuarioId;
             this.nombre = nombre;
@@ -16,7 +20,7 @@ namespace PlaceMyBet.Models
             this.mercado = mercado;
         }
 
-        public int usuarioId { get; set; }
+        public string usuarioId { get; set; }
 
         public string nombre { get; set; }
 

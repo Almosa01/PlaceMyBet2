@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using Microsoft.EntityFrameworkCore;
 
 namespace PlaceMyBet.Models
 {
@@ -127,20 +128,49 @@ namespace PlaceMyBet.Models
 
         }
 
-        internal Apuesta Retrieve(int id)
+        internal List<Apuesta> Retrieve(int id)
         {
-            Apuesta apuestas;
+            List<Apuesta> apuestas1 = new List<Apuesta>();
 
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                apuestas = context.apuestas
-                    .Where(s => s.apuestaId == id)
-                    .FirstOrDefault();
+                apuestas1 = context.apuestas.Include(p => p.mercados2).ToList();
             }
 
 
-            return apuestas;
+            return apuestas1;
         }
+        internal void Save(Apuesta a)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.apuestas.Add(a);
+            context.SaveChanges();
+
+        }
+        public static ApuestaDto ToDTO(Apuesta a, Evento e, Usuario u)
+        {
+            return new ApuestaDto(u.usuarioId, e.eventoId, a.tipo, a.dinero);
+        }
+
+        internal List<ApuestaDto> Retrieve2()
+        {
+            List<ApuestaDto> apuestadto = new List<ApuestaDto>();
+            Evento e = new Evento();
+            Usuario u = new Usuario();
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuestadto = context.apuestas
+                    .Select(a => ToDTO(a, e, u))
+                    .Include(p => p.mercado2).ToList();
+
+            }
+
+
+            return apuestadto;
+        }
+
     }
 
 

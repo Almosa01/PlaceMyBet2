@@ -70,6 +70,47 @@ namespace PlaceMyBet.Models
             return eventos;
 
         }
+        internal List<Evento> Retrieve2(int id)
+        {
+
+            List<Evento> eventos = new List<Evento>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventos = context.eventos.ToList();
+            }
+
+            return eventos;
+
+        }
+        internal Evento Retrieve3(int id)
+        {
+
+            Evento eventos;
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventos = context.eventos.Find(id);
+            }
+
+            return eventos;
+
+        }
+        internal void Update(Evento e)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.eventos.Update(e);
+            context.SaveChanges();
+
+        }
+
+        internal void Delete(Evento e)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.eventos.Remove(e);
+            context.SaveChanges();
+
+        }
 
 
 

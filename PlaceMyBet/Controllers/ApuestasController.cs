@@ -18,20 +18,26 @@ namespace PlaceMyBet.Controllers
 
         // GET: api/Apuestas/5
         //[Authorize(Roles = "Admin")]
-        public Apuesta Get(int id)//ApuestaDto3
+        public List<Apuesta> Get(int id)//ApuestaDto3
         {
             var repo = new ApuestaRepository();
-            Apuesta a = repo.Retrieve(id);//Filtrar3
+            List<Apuesta> a = repo.Retrieve(id);//Filtrar3
             return a;
         }
+        //public List<ApuestaDto> Get()
+        //{
+        //    var repo = new apuestaRepository();
+        //    List<ApuestaDto> m = repo.Retrieve();
+        //    return m;
+        //}
 
         // POST: api/Apuestas
-        [Authorize]
-        //public void Post([FromBody]Apuesta apuesta)
-        //{
-        //    var repo = new ApuestaRepository();
-        //    repo.Save(apuesta); 
-        //}
+        //[Authorize]
+        public void Post([FromBody]Apuesta apuesta)
+        {
+            var repo = new ApuestaRepository();
+            repo.Save(apuesta); 
+        }
 
         // PUT: api/Apuestas/5
         public void Put(int id, [FromBody]string value)

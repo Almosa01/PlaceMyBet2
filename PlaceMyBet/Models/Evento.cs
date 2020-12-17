@@ -7,7 +7,10 @@ namespace PlaceMyBet.Models
 {
     public class Evento
     {
+        public Evento()
+        {
 
+        }
 
         public Evento(int eventoId, string nombreLocal, string nombreVisitante, string fecha, double mercado)
         {
