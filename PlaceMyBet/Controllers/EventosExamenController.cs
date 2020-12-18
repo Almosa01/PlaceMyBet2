@@ -17,16 +17,18 @@ namespace PlaceMyBet.Controllers
         //}
 
         // GET: api/EventosExamen/5
-        public List<EventosExamen> Get(string nombre)
+        public List<EventosExamen> Get()
         {
             var repo = new EventosExamenRepository();
-            List<EventosExamen> e = repo.Retrieve2(nombre);
+            List<EventosExamen> e = repo.Retrieve2();
             return e;
         }
 
         // POST: api/EventosExamen
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Mercado m,EventoDto2 e)
         {
+            var repo = new EventosExamenRepository();
+            repo.Save(m,e);
         }
 
         // PUT: api/EventosExamen/5

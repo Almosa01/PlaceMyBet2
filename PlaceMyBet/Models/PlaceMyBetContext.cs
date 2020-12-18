@@ -14,6 +14,8 @@ namespace PlaceMyBet.Models
         public DbSet<Mercado> mercados { get; set; } //Taula
         public DbSet<CasaApuestas> casaApuestas { get; set; } //Taula
 
+        public DbSet <EventoDto2> eventoDto2s { get; set; }
+
 
         public PlaceMyBetContext()
         {

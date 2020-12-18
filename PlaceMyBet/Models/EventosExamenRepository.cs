@@ -15,7 +15,7 @@ namespace PlaceMyBet.Models
             return new EventosExamen(m.mercadoId, m.cuotaOver, m.cuotaUnder, e.nombreVisitante);
         }
 
-        internal List<EventosExamen> Retrieve2(string nombre)
+        internal List<EventosExamen> Retrieve2()
         {
             List<EventosExamen> eventos = new List<EventosExamen>();
             Evento e = new Evento();
@@ -27,6 +27,14 @@ namespace PlaceMyBet.Models
                     .Include(n => n.nombreVisitante).ToList();
             }
             return eventos;
+        }
+        internal void Save(Mercado m, EventoDto2 e)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.eventoDto2s.Add(e);
+            context.mercados.Add(m);
+            context.SaveChanges();
+
         }
     }
 }
