@@ -326,6 +326,7 @@
     <Compile Include="Controllers\ApuestasController.cs" />
     <Compile Include="Controllers\CasaApuestasController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
+    <Compile Include="Controllers\EventosExamenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MercadosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -346,6 +347,8 @@
     <Compile Include="Models\CasaApuestasRepository.cs" />
     <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\EventoRepository.cs" />
+    <Compile Include="Models\EventosExamen.cs" />
+    <Compile Include="Models\EventosExamenRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Mercado.cs" />
     <Compile Include="Models\MercadoDto.cs" />
