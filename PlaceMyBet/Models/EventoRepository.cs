@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -110,6 +111,22 @@ namespace PlaceMyBet.Models
             context.eventos.Remove(e);
             context.SaveChanges();
 
+        }
+        public static EventoDtoExa ToDTO(EventoDtoExa e)
+        {
+            return new EventoDtoExa(e.nombreVisitante,e.nombreVisitante);
+        }
+        internal List<EventoDtoExa> Retrieve(string nombre)
+        {
+            List<EventoDtoExa> evento1 = new List<EventoDtoExa>();
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                evento1 = context.eventos.Include(p => p.mercados2).ToList();
+            }
+
+
+            return evento1;
         }
 
 

@@ -23,10 +23,10 @@ namespace PlaceMyBet.Controllers
         //}
 
         // GET: api/Eventos/5
-        public List<Evento> Get(int id)
+        public List<EventoDtoExa> Get(string nombre)
         {
             var repo = new EventoRepository();
-            List<Evento> e = repo.Retrieve();
+            List<EventoDtoExa> e = repo.Retrieve(nombre);
             return e;
         }
 
